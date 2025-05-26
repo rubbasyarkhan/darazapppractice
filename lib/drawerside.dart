@@ -1,3 +1,4 @@
+import 'package:darazapp/ApiProduct.dart';
 import 'package:darazapp/dynamiclist.dart';
 import 'package:darazapp/homepage.dart';
 import 'package:darazapp/login.dart';
@@ -76,6 +77,19 @@ class _DrawerSideState extends State<DrawerSide> {
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => Login()),
+                (route) => false,
+              );
+            },
+          ),
+          Divider(),
+          _buildDrawerItem(
+            icon: Icons.production_quantity_limits_rounded,
+            title: 'api product',
+            // iconColor: Colors.red,
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => ApiProduct()),
                 (route) => false,
               );
             },
