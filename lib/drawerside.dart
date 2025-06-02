@@ -1,8 +1,34 @@
-import 'package:darazapp/ApiProduct.dart';
-import 'package:darazapp/dynamiclist.dart';
-import 'package:darazapp/homepage.dart';
-import 'package:darazapp/login.dart';
 import 'package:flutter/material.dart';
+import 'package:darazapp/login.dart';
+import 'package:darazapp/signup.dart';
+import 'package:darazapp/homepage.dart';
+import 'package:darazapp/ApiProduct.dart';
+import 'package:darazapp/splashscreen.dart';
+import 'package:darazapp/dynamiclist.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Daraz App',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Splashscreen(),
+        '/login': (context) => const Login(),
+        '/signup': (context) => const Signup(),
+        '/home': (context) => const Homepage(),
+        '/product': (context) => const ApiProduct(),
+      },
+    );
+  }
+}
 
 class DrawerSide extends StatefulWidget {
   const DrawerSide({Key? key}) : super(key: key);
@@ -21,8 +47,8 @@ class _DrawerSideState extends State<DrawerSide> {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: Color(0xFFF57224), // Daraz Orange
+            decoration: const BoxDecoration(
+              color: Color(0xFFF57224),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,8 +62,8 @@ class _DrawerSideState extends State<DrawerSide> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(width: 15),
-                Text(
+                const SizedBox(width: 15),
+                const Text(
                   'Hello, User!',
                   style: TextStyle(
                     fontSize: 20,
@@ -52,10 +78,7 @@ class _DrawerSideState extends State<DrawerSide> {
             icon: Icons.home,
             title: 'Home Page',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Homepage()),
-              );
+              Navigator.pushNamed(context, '/');
             },
           ),
           _buildDrawerItem(
@@ -64,34 +87,25 @@ class _DrawerSideState extends State<DrawerSide> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Dynamiclist()),
+                MaterialPageRoute(builder: (context) => const Dynamiclist()),
               );
             },
           ),
-          Divider(),
+          const Divider(),
           _buildDrawerItem(
             icon: Icons.logout,
             title: 'Logout',
             iconColor: Colors.red,
             onTap: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-                (route) => false,
-              );
+              Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
             },
           ),
-          Divider(),
+          const Divider(),
           _buildDrawerItem(
             icon: Icons.production_quantity_limits_rounded,
             title: 'api product',
-            // iconColor: Colors.red,
             onTap: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => ApiProduct()),
-                (route) => false,
-              );
+              Navigator.pushNamedAndRemoveUntil(context, '/product', (route) => false);
             },
           ),
         ],
@@ -109,7 +123,7 @@ class _DrawerSideState extends State<DrawerSide> {
       leading: Icon(icon, color: iconColor),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: Colors.black87,

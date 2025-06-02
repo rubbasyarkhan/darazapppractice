@@ -31,11 +31,11 @@ class _SignupState extends State<Signup> {
           phoneController.text == expectedPhone &&
           confirmPasswordController.text == expectedPassword) {
 
-        print("User matched successfully");
-        print("User Name : ${nameController.text}");
-        print("User Email : ${emailController.text}");
-        print("User Password : ${passwordController.text}");
-        print("User Phone : ${phoneController.text}");
+        // print("User matched successfully");
+        // print("User Name : ${nameController.text}");
+        // print("User Email : ${emailController.text}");
+        // print("User Password : ${passwordController.text}");
+        // print("User Phone : ${phoneController.text}");
 
         // Clear fields
         emailController.clear();
