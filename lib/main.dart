@@ -2,6 +2,7 @@ import 'package:darazapp/ApiProduct.dart';
 import 'package:darazapp/Signup.dart';
 import 'package:darazapp/homepage.dart';
 import 'package:darazapp/login.dart';
+import 'package:darazapp/musicapp.dart';
 import 'package:darazapp/splashscreen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -22,12 +23,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: const Homepage(),
       // home: const Login(),
-      home: const Splashscreen(),
+      // home: const Splashscreen(),
+      home: MusicApp(),
       routes: {
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
         '/home': (context) => const Homepage(),
         '/product': (context) => const ApiProduct(),
+        '/music': (context) =>  MusicApp(),
       },
       // home: const Signup(),
     );
