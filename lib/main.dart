@@ -1,4 +1,5 @@
 import 'package:darazapp/ApiProduct.dart';
+import 'package:darazapp/Billcalculator.dart';
 import 'package:darazapp/Signup.dart';
 import 'package:darazapp/homepage.dart';
 import 'package:darazapp/login.dart';
@@ -24,13 +25,14 @@ class MyApp extends StatelessWidget {
       // home: const Homepage(),
       // home: const Login(),
       // home: const Splashscreen(),
-      home: MusicApp(),
+      home: Billcalculator(),
       routes: {
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
         '/home': (context) => const Homepage(),
         '/product': (context) => const ApiProduct(),
         '/music': (context) =>  MusicApp(),
+        '/bill': (context) =>  Billcalculator(),
       },
       // home: const Signup(),
     );
